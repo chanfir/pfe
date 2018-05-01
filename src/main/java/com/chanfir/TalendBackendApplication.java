@@ -1,4 +1,4 @@
-package com.kelaskoding;
+package com.chanfir;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -9,15 +9,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kelaskoding.entity.ParametreJob;
-import com.kelaskoding.entity.SpiJob;
+import com.chanfir.entity.ParametreJob;
+import com.chanfir.entity.SpiJob;
 
 @Configuration
-@ComponentScan(basePackages = {"com.kelaskoding"})
+@ComponentScan(basePackages = {"com.chanfir"})
 @EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class})
 @SpringBootApplication
 @RestController
-public class CandidateAppApplication {
+public class TalendBackendApplication {
 
     @RequestMapping("/")
     public String info() {
@@ -25,7 +25,7 @@ public class CandidateAppApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(CandidateAppApplication.class, args);
+        SpringApplication.run(TalendBackendApplication.class, args);
         
 //        ParametreJob param=new ParametreJob();
 //        

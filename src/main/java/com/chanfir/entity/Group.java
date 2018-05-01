@@ -1,4 +1,4 @@
-package com.kelaskoding.entity;
+package com.chanfir.entity;
 
 
 
@@ -22,7 +22,7 @@ public class Group {
 	
 	private int idg;
 	
-	@ManyToMany(mappedBy ="SpiJoblist")
+	@ManyToMany(mappedBy ="GroupSet")
 	   private List<SpiJob> SpiJobList;
 	
 	@ManyToMany

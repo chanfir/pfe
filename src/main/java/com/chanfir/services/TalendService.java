@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.kelaskoding.services;
+package com.chanfir.services;
 
-import com.kelaskoding.entity.Candidate;
-import com.kelaskoding.repo.CandidateRepo;
+import com.chanfir.controller.TalendController;
+import com.chanfir.entity.Candidate;
+import com.chanfir.entity.SpiJob;
+import com.chanfir.repo.SpiJobRepo;
+
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,32 +19,36 @@ import org.springframework.stereotype.Service;
  *
  * @author Hendro Steven
  */
-@Service("candidateService")
+@Service(value="talendservice")
 @Transactional
-public class CandidateService {
+public class TalendService {
+	
+	
 
     @Autowired
-    private CandidateRepo repo;
+    private SpiJobRepo repo;
 
-    public Candidate insert(Candidate candidate) {
-        return repo.save(candidate);
+    public SpiJob insert(SpiJob job) {
+        return repo.save(job);
         
     }
 
-    public Candidate findById(String id) {
+    public SpiJob findById(String id) {
         return repo.findOne(id);
     }
 
-    public List<Candidate> findAll() {
-        return repo.findAllCandidate();
+    public List<SpiJob> findAll() {
+        return repo.findAlljobs();
     }
 
-    public List<Candidate> findByName(String name) {
+    public List<SpiJob> findByName(String name) {
         return repo.findByName("%" + name + "%");
     }
 
-    public boolean delete(String id) {
-        repo.delete(id);
+    public boolean delete(int j) {
+        repo.delete(j);
         return true;
     }
+
+	
 }

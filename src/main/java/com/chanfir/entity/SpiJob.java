@@ -1,4 +1,4 @@
-package com.kelaskoding.entity;
+package com.chanfir.entity;
 
 
 
@@ -92,6 +92,10 @@ public class SpiJob {
 		this.description = description;
 		JobPath = jobPath;
 
+	}
+	
+	public SpiJob() {
+		
 	}
 
 

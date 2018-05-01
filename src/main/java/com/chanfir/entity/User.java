@@ -1,4 +1,4 @@
-package com.kelaskoding.entity;
+package com.chanfir.entity;
 
 import java.util.ArrayList;
 import java.util.List;
