@@ -27,9 +27,9 @@ public class CandidateAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(CandidateAppApplication.class, args);
         
-        ParametreJob param=new ParametreJob();
-        
-        SpiJob job=new SpiJob();
-        job.getParamSet().add(param);
+//        ParametreJob param=new ParametreJob();
+//        
+//        SpiJob job=new SpiJob();
+//        job.getParamSet().add(param);
     }
 }

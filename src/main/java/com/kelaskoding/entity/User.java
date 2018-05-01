@@ -1,13 +1,16 @@
 package com.kelaskoding.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+//@Table(name="groupe")
 public class User {
 	
 	@Id
@@ -16,8 +19,8 @@ public class User {
 	private String nom;
 	private String prenom ;
 	
-//	@ManyToMany
-//	   private List<Group> groupList;
+	@ManyToMany
+	   private List<Group> groupList=new ArrayList<>();
 	
 	public int getIdu() {
 		return idu;

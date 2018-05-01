@@ -24,11 +24,11 @@ public class SpiJob {
 	private String description;
 	private String JobPath;
 	
-//	@ManyToMany
-//	   private Set<HistoriqueJob> HistoriqueJobSet;
-//	
-//	@ManyToMany
-//	   private Set<Group> GroupSet;
+	@OneToMany(mappedBy="spijob")
+	   private List<HistoriqueJob> historiqueList =new ArrayList<>();
+	
+	@ManyToMany
+	   private Set<Group> GroupSet;
 	
 	@OneToMany(mappedBy="spijob")
     private List<ParametreJob> paramSet=new ArrayList<ParametreJob>();
@@ -40,14 +40,14 @@ public class SpiJob {
 	}
 
 
-//	public Set<Group> getGroupSet() {
-//		return GroupSet;
-//	}
-//
-//
-//	public void setGroupSet(Set<Group> groupSet) {
-//		GroupSet = groupSet;
-//	}
+	public Set<Group> getGroupSet() {
+		return GroupSet;
+	}
+
+
+	public void setGroupSet(Set<Group> groupSet) {
+		GroupSet = groupSet;
+	}
 
 
 	public void setId(int id) {
@@ -85,13 +85,13 @@ public class SpiJob {
 	}
 	
 
-	public SpiJob(int id, String name, String description, String jobPath, List<ParametreJob> paramSet) {
+	public SpiJob(int id, String name, String description, String jobPath) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		JobPath = jobPath;
-		this.paramSet = paramSet;
+
 	}
 
 
@@ -105,16 +105,6 @@ public class SpiJob {
 	}
 
 
-	public SpiJob() {
-		// TODO Auto-generated constructor stub
-	}
 
-
-
-
-	
-	
-	
-	
 
 }

@@ -1,12 +1,12 @@
 package com.kelaskoding.entity;
 
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+
+import javax.persistence.ManyToOne;
 
 @Entity
 public class HistoriqueJob {
@@ -17,15 +17,24 @@ public class HistoriqueJob {
 	private double durée;
 	private  String temps;
 	
-//	@ManyToMany 
-//	   private Set<SpiJob> SpiJobSet;
+	@ManyToOne
+	   private SpiJob spijob;
 	
+
 	public HistoriqueJob(int idh, double durée, String temps) {
 		super();
 		this.idh = idh;
 		this.durée = durée;
 		this.temps = temps;
 	}
+	
+	public SpiJob getSpijob() {
+		return spijob;
+	}
+	public void setSpijob(SpiJob spijob) {
+		this.spijob = spijob;
+	}
+	
 	public int getIdh() {
 		return idh;
 	}
