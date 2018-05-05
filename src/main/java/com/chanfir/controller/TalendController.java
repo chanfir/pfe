@@ -5,7 +5,6 @@
  */
 package com.chanfir.controller;
 
-import com.chanfir.entity.Candidate;
 import com.chanfir.entity.SpiJob;
 import com.chanfir.services.TalendService;
 import com.kelaskoding.dto.SearchData;
@@ -23,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Hendro Steven
  */
 @RestController
-@RequestMapping("/api/candidate")
+@RequestMapping("/api/job")
 public class TalendController {
     
     @Autowired	

@@ -29,6 +29,8 @@ public class TalendService {
     private SpiJobRepo repo;
 
     public SpiJob insert(SpiJob job) {
+    	
+    	job.setJobPath("test path");
         return repo.save(job);
         
     }
