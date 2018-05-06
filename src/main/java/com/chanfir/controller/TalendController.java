@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.chanfir.controller;
 
 import com.chanfir.entity.SpiJob;
 import com.chanfir.services.TalendService;
-import com.kelaskoding.dto.SearchData;
+import com.chanfir.dto.SearchData;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author Hendro Steven
- */
+
 @RestController
 @RequestMapping("/api/job")
 public class TalendController {
@@ -51,6 +44,11 @@ public class TalendController {
     @RequestMapping(method = RequestMethod.POST, value = "/search")
     public List<SpiJob> findByName(@RequestBody SearchData searchData) {
         return service.findByName(searchData.getSearchKey());
+    }
+    
+    @RequestMapping(method = RequestMethod.PUT, value = "/update")
+    public boolean update(@RequestBody SpiJob job) {
+        return service.update(job);
     }
     
 }

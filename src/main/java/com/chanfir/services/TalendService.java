@@ -5,8 +5,8 @@
  */
 package com.chanfir.services;
 
-import com.chanfir.controller.TalendController;
-import com.chanfir.entity.Candidate;
+
+
 import com.chanfir.entity.SpiJob;
 import com.chanfir.repo.SpiJobRepo;
 
@@ -15,10 +15,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author Hendro Steven
- */
+
 @Service(value="talendservice")
 @Transactional
 public class TalendService {
@@ -51,6 +48,16 @@ public class TalendService {
         repo.delete(j);
         return true;
     }
+
+	public boolean update(SpiJob job) {
+		repo.update(job);
+		System.out.println("job id returned from front is"+job.getId());
+		System.out.println("job name returned from front is"+job.getName());
+		System.out.println("job description returned from front is"+job.getDescription());
+		return true;
+
+		
+	}
 
 	
 }

@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chanfir.entity.ParametreJob;
-import com.chanfir.entity.SpiJob;
+//import com.chanfir.entity.ParametreJob;
+//import com.chanfir.entity.SpiJob;
 
 @Configuration
 @ComponentScan(basePackages = {"com.chanfir"})
