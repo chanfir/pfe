@@ -21,7 +21,7 @@ public class SpiJob {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id ;
 	private String name ;
-	private String description;
+	private String description; 
 	private String JobPath;
 	
 	@OneToMany(mappedBy="spijob")
@@ -33,8 +33,7 @@ public class SpiJob {
 	@OneToMany(mappedBy="spijob")
     private List<ParametreJob> paramSet=new ArrayList<ParametreJob>();
 	
-	
-	
+
 	public int getId() {
 		return id;
 	}
@@ -90,6 +89,7 @@ public class SpiJob {
 		this.id = id;
 		this.name = name;
 		this.description = description;
+	
 		JobPath = jobPath;
 
 	}

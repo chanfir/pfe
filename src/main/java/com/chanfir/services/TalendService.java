@@ -1,37 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.chanfir.services;
 
 
 
+//import com.chanfir.dto.UploadJob;
 import com.chanfir.entity.SpiJob;
 import com.chanfir.repo.SpiJobRepo;
 
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.*;
 import java.util.List;
 import javax.transaction.Transactional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Service(value="talendservice")
 @Transactional
 public class TalendService {
 	
-	
+	Logger log = LoggerFactory.getLogger(this.getClass().getName());
+	private Path rootLocation = Paths.get("upload-dir");
 
     @Autowired
     private SpiJobRepo repo;
+//    @Autowired
+//    private UploadJob uploadjob ;
 
     public SpiJob insert(SpiJob job) {
     	
+    	
+//                MultipartFile file = job.file;
+//                
+//                filesystemstorageservice.store(file);
+     
+    	
     	job.setJobPath("test path");
+    	
         return repo.save(job);
         
     }
 
+    
     public SpiJob findById(String id) {
         return repo.findOne(id);
     }
@@ -59,5 +79,18 @@ public class TalendService {
 		
 	}
 
+	public void store(MultipartFile file) {
+		try {
+			String rootPath = System.getProperty("user.home");
+	    	
+	    	java.io.File dir = new File(rootPath + File.separator + "server");
+			if (!dir.exists())
+				dir.mkdirs();
+			
+			Files.copy(file.getInputStream(), Paths.get(rootPath+File.separator+"server").resolve(file.getOriginalFilename()));
+		} catch (Exception e) {
+			throw new RuntimeException("FAIL!");
+		}
+	}
 	
 }

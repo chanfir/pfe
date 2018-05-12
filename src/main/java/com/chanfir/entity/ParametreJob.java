@@ -1,4 +1,3 @@
-
 package com.chanfir.entity;
 
 import javax.persistence.Entity;

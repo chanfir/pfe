@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.chanfir.repo;
 
 import java.util.List;
@@ -16,10 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.chanfir.entity.SpiJob;
 
-/**
- *
- * @author Hendro Steven
- */
+
 public interface SpiJobRepo extends CrudRepository<SpiJob, String>{
     
     @Query("SELECT c FROM SpiJob c")
@@ -38,6 +30,8 @@ public interface SpiJobRepo extends CrudRepository<SpiJob, String>{
     @Modifying
     @Query("update SpiJob c set c.name =:#{#job.name} , c.description=:#{#job.description} where c.id=:#{#job.id}")
 	public  void update(@Param ("job") SpiJob job);
+    
+//    public void run();
     
    
 	

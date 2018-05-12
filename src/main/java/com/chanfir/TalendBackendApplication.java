@@ -21,7 +21,7 @@ public class TalendBackendApplication {
 
     @RequestMapping("/")
     public String info() {
-        return "CandidateApp Server v1.0";
+        return "Job server";
     }
 
     public static void main(String[] args) {
